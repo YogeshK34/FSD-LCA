@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Calculator (Using Class)</h2>
+
+<input type="number" id="n1">
+<input type="number" id="n2"><br><br>
+
+<button onclick="calculate('add')">Add</button>
+<button onclick="calculate('sub')">Subtract</button>
+<button onclick="calculate('mul')">Multiply</button>
+<button onclick="calculate('div')">Divide</button>
+
+<p id="result"></p>
+
+<script>
+class Calculator {
+    constructor(a, b) {
+        this.a = a;
+        this.b = b;
+    }
+
+    add() { return this.a + this.b; }
+    subtract() { return this.a - this.b; }
+    multiply() { return this.a * this.b; }
+    divide() { return this.a / this.b; }
+}
+
+function calculate(operation) {
+    let a = parseFloat(document.getElementById("n1").value);
+    let b = parseFloat(document.getElementById("n2").value);
+
+    let calc = new Calculator(a, b);
+    let output;
+
+    if (operation === 'add') output = calc.add();
+    if (operation === 'sub') output = calc.subtract();
+    if (operation === 'mul') output = calc.multiply();
+    if (operation === 'div') output = calc.divide();
+
+    document.getElementById("result").innerText = output;
+}
+</script>
+
+</body>
+</html>
