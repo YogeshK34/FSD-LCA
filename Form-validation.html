@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Validation</title>
+</head>
+<body>
+
+<h2>Registration Form</h2>
+
+<form onsubmit="return validateForm()">
+
+Username: <input type="text" id="username"><br><br>
+Contact: <input type="text" id="contact"><br><br>
+Email: <input type="text" id="email"><br><br>
+Date of Birth: <input type="date" id="dob"><br><br>
+
+Qualification:
+<select id="qualification">
+    <option value="">Select</option>
+    <option>Graduate</option>
+    <option>Post Graduate</option>
+</select><br><br>
+
+Gender:
+<input type="radio" name="gender" value="Male">Male
+<input type="radio" name="gender" value="Female">Female<br><br>
+
+City:
+<select id="city">
+    <option value="">Select</option>
+    <option>Mumbai</option>
+    <option>Delhi</option>
+</select><br><br>
+
+Password: <input type="password" id="password"><br><br>
+Confirm Password: <input type="password" id="confirmPassword"><br><br>
+
+<input type="submit" value="Submit">
+
+</form>
+
+<script>
+function validateForm() {
+
+    let username = document.getElementById("username").value;
+    let contact = document.getElementById("contact").value;
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+    let confirmPassword = document.getElementById("confirmPassword").value;
+
+    if (username === "") {
+        alert("Username is required");
+        return false;
+    }
+
+    if (contact.length !== 10 || isNaN(contact)) {
+        alert("Enter valid 10-digit contact number");
+        return false;
+    }
+
+    let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+    if (!email.match(emailPattern)) {
+        alert("Enter valid email");
+        return false;
+    }
+
+    if (password.length < 6) {
+        alert("Password must be at least 6 characters");
+        return false;
+    }
+
+    if (password !== confirmPassword) {
+        alert("Passwords do not match");
+        return false;
+    }
+
+    alert("Form Submitted Successfully!");
+    return true;
+}
+</script>
+
+</body>
+</html>
