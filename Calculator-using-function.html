@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Calculator (Using Functions)</h2>
+
+<input type="number" id="num1">
+<input type="number" id="num2"><br><br>
+
+<button onclick="add()">Add</button>
+<button onclick="subtract()">Subtract</button>
+<button onclick="multiply()">Multiply</button>
+<button onclick="divide()">Divide</button>
+
+<p id="output"></p>
+
+<script>
+function add() {
+    let result = getValues();
+    document.getElementById("output").innerText = result.a + result.b;
+}
+
+function subtract() {
+    let result = getValues();
+    document.getElementById("output").innerText = result.a - result.b;
+}
+
+function multiply() {
+    let result = getValues();
+    document.getElementById("output").innerText = result.a * result.b;
+}
+
+function divide() {
+    let result = getValues();
+    document.getElementById("output").innerText = result.a / result.b;
+}
+
+function getValues() {
+    let a = parseFloat(document.getElementById("num1").value);
+    let b = parseFloat(document.getElementById("num2").value);
+    return {a, b};
+}
+</script>
+
+</body>
+</html>
